@@ -2,7 +2,7 @@
 using Framework.Utils;
 using OpenQA.Selenium;
 
-namespace Framework.Browser
+namespace Framework.Browsers
 {
   
     public static class Browser

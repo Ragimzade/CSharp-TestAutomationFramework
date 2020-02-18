@@ -4,7 +4,7 @@ using OpenQA.Selenium.Firefox;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace Framework.Browser
+namespace Framework.Browsers
 {
     public class BrowserOptions
     {

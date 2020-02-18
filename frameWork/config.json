@@ -1,0 +1,10 @@
+﻿{
+  "browser": "Chrome",
+  "baseUrl": "https://abw.by",
+  "browserDownloadFolder": "/resources/downloads",
+  "timeoutImplicit": 0,
+  "timeoutInSeconds": 5,
+  "timeoutPageLoad": 30,
+  "pollingIntervalInMillis": 300,
+  "pageLoadTimeOutInSeconds": 60
+}

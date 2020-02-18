@@ -13,7 +13,7 @@ namespace Framework.BaseClasses
         {
             _formSelector = formSelector;
             _formName = $"{formName} form";
-            Browser.Browser.WaitForPageLoaded();
+            Browsers.Browser.WaitForPageLoaded();
             AssertFormIsOpened(formSelector);
         }
 

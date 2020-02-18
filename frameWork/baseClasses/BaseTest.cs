@@ -12,16 +12,16 @@ namespace Framework.BaseClasses
         [TestInitialize]
         public void Setup()
         {
-            var driver = Browser.Browser.GetInstance();
+            var driver = Browsers.Browser.GetInstance();
             FileUtils.CleanDirectory(FileUtils.GetOutputDirectory());
-            Browser.Browser.OpenBaseUrl();
+            Browsers.Browser.OpenBaseUrl();
         }
 
         [TestCleanup]
         public void TearDown()
         {
             ScreenShotUtils.TakeScreenshot(TestContext);
-            Browser.Browser.Quit();
+            Browsers.Browser.Quit();
         }
     }
 }
