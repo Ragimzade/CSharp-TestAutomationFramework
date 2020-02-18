@@ -21,4 +21,10 @@
         <PackageReference Include="WebDriverManager" Version="2.9.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="config.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

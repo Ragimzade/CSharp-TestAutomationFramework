@@ -7,7 +7,7 @@ namespace Framework.Utils
     {
         private const string ScreenShotsFolder = "ScreenShots";
 
-        public static string GetOutputDirectory()
+        public static string BuildDirectoryPath()
         {
             var location = Path.Combine(AppContext.BaseDirectory, ScreenShotsFolder);
             if (!Directory.Exists(location))

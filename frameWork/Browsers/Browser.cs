@@ -4,22 +4,20 @@ using OpenQA.Selenium;
 
 namespace Framework.Browsers
 {
-  
     public static class Browser
     {
         private static IWebDriver _instance;
         private static readonly object SyncRoot = new object();
-
         private static readonly Logg Log = Logg.GetInstance();
 
-        public static IWebDriver GetInstance()
+        public static IWebDriver GetInstance(string browser)
         {
             if (_instance == null)
             {
                 lock (SyncRoot)
                 {
                     if (_instance == null)
-                        _instance = BrowserFactory.InitDriver(JsonReader.GetBrowser());
+                        _instance = BrowserFactory.InitDriver(browser);
                 }
             }
             return _instance;

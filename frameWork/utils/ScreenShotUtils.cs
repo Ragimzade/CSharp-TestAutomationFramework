@@ -28,7 +28,7 @@ namespace Framework.Utils
         private static void GetScreenshot(TestContext testContext)
         {
             Log.Error("The test failed and about to grab a screenshot");
-            var filename = Path.Combine(FileUtils.GetOutputDirectory(),
+            var filename = Path.Combine(FileUtils.BuildDirectoryPath(),
                 DateUtils.GetTimeStamp() + "-" + testContext.TestName + ".png");
 
             ((ITakesScreenshot) Driver).GetScreenshot()

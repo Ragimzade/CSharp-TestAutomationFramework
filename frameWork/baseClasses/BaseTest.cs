@@ -1,5 +1,9 @@
-﻿using Framework.Utils;
+﻿using System.Diagnostics;
+using System.IO;
+using Framework.Browsers;
+using Framework.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace Framework.BaseClasses
 {
@@ -12,16 +16,23 @@ namespace Framework.BaseClasses
         [TestInitialize]
         public void Setup()
         {
-            var driver = Browsers.Browser.GetInstance();
-            FileUtils.CleanDirectory(FileUtils.GetOutputDirectory());
-            Browsers.Browser.OpenBaseUrl();
+            Driver = Browser.GetInstance(Config.Browser);
+            FileUtils.CleanDirectory(FileUtils.BuildDirectoryPath());
+            Browser.OpenBaseUrl();
+            Log.Info(Config.Browser);
+            Debug.WriteLine(Config.BaseUrl);
+            Debug.WriteLine(Config.ImplicitWait);
+            Debug.WriteLine(Config.PollingIntervalInMillis);
+            Debug.WriteLine(Config.TimeOutInSeconds);
+            Debug.WriteLine(Config.PageLoadTimeOutInSeconds);
+            Debug.WriteLine(Config.Browser);
         }
 
         [TestCleanup]
         public void TearDown()
         {
             ScreenShotUtils.TakeScreenshot(TestContext);
-            Browsers.Browser.Quit();
+            Browser.Quit();
         }
     }
 }

@@ -3,8 +3,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Framework.BaseClasses;
 using Framework.Utils;
+using MsTest.Model;
 using OpenQA.Selenium;
-using TestAutomation.model;
 
 namespace MsTest.Pages
 {
@@ -24,9 +24,9 @@ namespace MsTest.Pages
         private static readonly By LblChildCarName = By.XPath(".//div[@class='b-item_title']/a");
 
         private static readonly By LblChildCarPrice = By.XPath(".//div[@class='b-item_price']");
-        
+
         private static readonly By LblChildCarYear = By.XPath(".//div[@class='b-descr_item_info']");
-        
+
         private static readonly By LblChildCarDate = By.XPath(".//p[@class='b-le_company_inf']");
 
         private List<CarData> GetCarsOnPage()
