@@ -1,8 +1,8 @@
-﻿using OpenQA.Selenium;
-using Test.logging;
-using Test.utils;
+﻿using Framework.Logging;
+using Framework.Utils;
+using OpenQA.Selenium;
 
-namespace Test.browser
+namespace Framework.Browser
 {
   
     public static class Browser

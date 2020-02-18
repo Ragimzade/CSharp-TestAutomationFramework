@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace Test.utils
+namespace Framework.Utils
 {
-    public static class DateMapper
+    public static class DateConverter
     {
         private static readonly string[] Months =
         {

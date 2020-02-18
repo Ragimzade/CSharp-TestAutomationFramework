@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Framework.BaseClasses;
+using Framework.Utils;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using Test.baseClasses;
-using Test.utils;
 
-namespace Test.elements
+namespace Framework.Elements
 {
     public class ElementFinder : BaseEntity
     {

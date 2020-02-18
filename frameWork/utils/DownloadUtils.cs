@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using Test.elements;
+using Framework.Elements;
 
-namespace Test.utils
+namespace Framework.Utils
 {
     public class DownloadUtils : ElementFinder
     {

@@ -1,13 +1,13 @@
 ﻿using System;
+using Framework.Utils;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using Test.utils;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace Test.browser
+namespace Framework.Browser
 {
     internal  class BrowserFactory
     {

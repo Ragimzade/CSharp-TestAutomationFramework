@@ -1,7 +1,7 @@
-﻿using OpenQA.Selenium;
-using Test.baseClasses;
+﻿using Framework.BaseClasses;
+using OpenQA.Selenium;
 
-namespace TestAutomation.pages
+namespace MsTest.Pages
 {
     public class MainPage : BaseForm
     {

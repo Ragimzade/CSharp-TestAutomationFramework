@@ -1,9 +1,9 @@
 ﻿using System.IO;
+using Framework.BaseClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using Test.baseClasses;
 
-namespace Test.utils
+namespace Framework.Utils
 {
     public  class ScreenShotUtils : BaseEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace TestAutomation.model
+﻿﻿namespace TestAutomation.model
 {
     public class CarDateComparer : CarDataComparer
     {

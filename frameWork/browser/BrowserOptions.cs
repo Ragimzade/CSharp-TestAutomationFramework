@@ -1,10 +1,10 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using Framework.Utils;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using Test.utils;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace Test.browser
+namespace Framework.Browser
 {
     public class BrowserOptions
     {

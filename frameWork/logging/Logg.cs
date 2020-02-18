@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using NLog;
 
-namespace Test.logging
+namespace Framework.Logging
 {
     public class Logg
     {

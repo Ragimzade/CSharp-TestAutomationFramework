@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Test.utils
+namespace Framework.Utils
 {
     public static class SmartWait
     {

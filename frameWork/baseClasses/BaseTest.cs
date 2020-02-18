@@ -1,9 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Test.baseClasses;
-using Test.browser;
-using Test.utils;
+﻿using Framework.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestAutomation
+namespace Framework.BaseClasses
 {
     [TestClass]
     public class BaseTest : BaseEntity
@@ -14,16 +12,16 @@ namespace TestAutomation
         [TestInitialize]
         public void Setup()
         {
-            var driver = Browser.GetInstance();
+            var driver = Browser.Browser.GetInstance();
             FileUtils.CleanDirectory(FileUtils.GetOutputDirectory());
-            Browser.OpenBaseUrl();
+            Browser.Browser.OpenBaseUrl();
         }
 
         [TestCleanup]
         public void TearDown()
         {
             ScreenShotUtils.TakeScreenshot(TestContext);
-            Browser.Quit();
+            Browser.Browser.Quit();
         }
     }
 }

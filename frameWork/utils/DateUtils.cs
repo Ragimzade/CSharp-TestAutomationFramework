@@ -1,6 +1,6 @@
-﻿using System;
+﻿﻿using System;
 
-namespace Test.utils
+ namespace Framework.Utils
 {
     public static class DateUtils
     {

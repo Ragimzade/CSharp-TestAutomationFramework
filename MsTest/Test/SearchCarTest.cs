@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Framework.Assertions;
+using Framework.BaseClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Test.assertions;
+using MsTest.Pages;
 using TestAutomation.model;
-using TestAutomation.pages;
 
-namespace TestAutomation.tests
+namespace MsTest.Test
 {
     [TestClass]
     public class SearchCarTest : BaseTest
