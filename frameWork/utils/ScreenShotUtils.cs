@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace Framework.Utils
 {
-    public  class ScreenShotUtils : BaseEntity
+    public class ScreenshotUtils : BaseEntity
     {
         public static void TakeScreenshot(TestContext testContext)
         {
