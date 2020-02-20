@@ -12,13 +12,13 @@ namespace Framework.BaseClasses
     {
         public TestContext TestContext { get; set; }
 
-        
+
         [TestInitialize]
         public void Setup()
         {
-            Driver = Browser.GetInstance(Config.Browser);
+            Driver = GetInstance(Config.Browser);
             FileUtils.CleanDirectory(FileUtils.BuildDirectoryPath());
-            Browser.OpenBaseUrl();
+            Driver.OpenBaseUrl();
             Log.Info(Config.Browser);
             Debug.WriteLine(Config.BaseUrl);
             Debug.WriteLine(Config.ImplicitWait);
@@ -32,7 +32,7 @@ namespace Framework.BaseClasses
         public void TearDown()
         {
             ScreenShotUtils.TakeScreenshot(TestContext);
-            Browser.Quit();
+            QuitBrowser();
         }
     }
 }

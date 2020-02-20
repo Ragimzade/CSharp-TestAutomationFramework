@@ -19,7 +19,7 @@ namespace Framework.Utils
 
         public static bool IsFileDownloaded(string filename)
         {
-            var path = JsonReader.GetBrowserDownloadPath();
+            var path = Config.BrowserDownloadPath;
             var fileInfo = new FileInfo(path);
             return SmartWait.WaitFor(Driver, d =>
                     File.Exists(path) &&

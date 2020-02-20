@@ -1,4 +1,4 @@
-﻿namespace Framework.Utils
+﻿namespace Framework.Configuration
 {
     public interface IConfiguration
     {
@@ -9,5 +9,6 @@
          int ImplicitWait { get; set; }
          string BrowserDownloadPath { get; set; }
          string BaseUrl { get; set; }
+         string ScreenshotsFolder { get; set; }
     }
 }

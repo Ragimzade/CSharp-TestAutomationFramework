@@ -1,4 +1,5 @@
-﻿using Framework.Elements;
+﻿using Framework.Browsers;
+using Framework.Elements;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 
@@ -13,7 +14,7 @@ namespace Framework.BaseClasses
         {
             _formSelector = formSelector;
             _formName = $"{formName} form";
-            Browsers.Browser.WaitForPageLoaded();
+            Driver.WaitForPageLoaded();
             AssertFormIsOpened(formSelector);
         }
 

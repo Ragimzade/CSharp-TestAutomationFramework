@@ -20,7 +20,6 @@ namespace MsTest.Test
         [TestMethod]
         public void SearchCar()
         {
-            Debug.Write(JsonReader.GetBrowser());
             var softAssert = new SoftAssertions();
 
             Log.Step(1, "Go to cars sale page");
@@ -55,8 +54,7 @@ namespace MsTest.Test
 
             Log.Step(8, "Sort result by publish date");
             var carsSortedByDate = resultPage.FilterByDate();
-
-
+            
             Log.Step(9, "Verify that result is sorted by publish date");
             var expectedSortingByDate = cars.OrderByDescending(x =>
                 {

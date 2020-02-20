@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using Newtonsoft.Json;
 
-namespace Framework.Utils
+namespace Framework.Configuration
 {
     public class Configuration : IConfiguration
     {
@@ -25,6 +25,9 @@ namespace Framework.Utils
         
         [JsonProperty("baseUrl")]
         public string BaseUrl { get; set; }
+        
+        [JsonProperty("screenshotsFolder")]
+        public string ScreenshotsFolder { get; set; }
 
         public static T ParseConfiguration<T>(string jsonText) where T : IConfiguration
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Framework.BaseClasses;
 using Framework.Utils;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -9,7 +10,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Framework.Browsers
 {
-    internal  class BrowserFactory
+    internal  class BrowserFactory : BaseEntity
     {
         private BrowserFactory()
         {
@@ -25,14 +26,14 @@ namespace Framework.Browsers
                     var firefoxOptions = BrowserOptions.GetFirefoxOptions();
                     new DriverManager().SetUpDriver(new FirefoxConfig());
                     driver = new FirefoxDriver(firefoxOptions);
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(JsonReader.GetImplicitWait());
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Config.ImplicitWait);
                     break;
 
                 case "Chrome":
                     var chromeOptions = BrowserOptions.GetChromeOptions();
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     driver = new ChromeDriver(chromeOptions);
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(JsonReader.GetImplicitWait());
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Config.ImplicitWait);
                     break;
 
                 case "Edge":
