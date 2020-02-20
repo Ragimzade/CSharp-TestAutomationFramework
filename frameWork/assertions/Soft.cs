@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test.assertions
+namespace Framework.Assertions
 {
     public static class Soft
     {

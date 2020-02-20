@@ -1,4 +1,4 @@
-﻿namespace Test.assertions
+﻿namespace Framework.Assertions
 {
     public class SingleAssert : IAssert
     {

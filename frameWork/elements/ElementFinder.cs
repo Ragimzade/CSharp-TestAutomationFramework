@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Linq;
+using Framework.BaseClasses;
+using Framework.Utils;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using Test.baseClasses;
-using Test.utils;
 
-namespace Test.elements
+namespace Framework.Elements
 {
     public class ElementFinder : BaseEntity
     {
-        private static readonly int TimeOutSeconds = JsonReader.GetTimeoutInSeconds();
-        private static readonly int TimeOutInMillis = JsonReader.GetPollingIntervalInMillis();
+        private static readonly int TimeOutSeconds = Config.TimeOutInSeconds;
+        private static readonly int TimeOutInMillis = Config.PollingIntervalInMillis;
 
         private IWebElement InternalFinder(By locator)
         {
@@ -23,7 +22,7 @@ namespace Test.elements
             catch (Exception)
             {
                 throw new Exception(
-                    $"WebDriverTimeoutException: Element {locator} was not found for {JsonReader.GetTimeoutInSeconds()} seconds");
+                    $"WebDriverTimeoutException: Element {locator} was not found for {TimeOutSeconds} seconds");
             }
         }
         
@@ -41,12 +40,7 @@ namespace Test.elements
         {
             WaitForElement(parentLocator).FindElements(childLocator);
         }
-
-        protected ReadOnlyCollection<IWebElement> FindElements(By locator)
-        {
-            return Driver.FindElements(locator);
-        }
-
+        
         private void WaitForCondition<T>(Func<IWebDriver, T> condition)
         {
             SmartWait.WaitFor(Driver, condition, TimeOutSeconds, TimeOutInMillis);

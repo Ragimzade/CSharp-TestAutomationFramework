@@ -1,21 +1,21 @@
 ﻿using System;
 using System.IO;
+using Framework.BaseClasses;
 
-namespace Test.utils
+namespace Framework.Utils
 {
-    public static class FileUtils
+    public class FileUtils : BaseEntity
     {
-        private const string ScreenShotsFolder = "ScreenShots";
-
-        public static string GetOutputDirectory()
+        public static string BuildDirectoryPath()
         {
-            var location = Path.Combine(AppContext.BaseDirectory, ScreenShotsFolder);
+            var location = Path.Combine(AppContext.BaseDirectory, Config.ScreenshotsFolder);
             if (!Directory.Exists(location))
             {
                 Directory.CreateDirectory(location);
             }
             return location;
         }
+
         public static void CleanDirectory(string directoryLocation)
         {
             foreach (var file in new DirectoryInfo(directoryLocation).GetFiles())

@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using static System.String;
 
-namespace TestAutomation.model
+namespace MsTest.Model
 {
     public class CarData : IEquatable<CarData>, IComparable<CarData>
     {
@@ -39,5 +40,26 @@ namespace TestAutomation.model
 
 
         public override int GetHashCode() => (Name, Price, Year, Date).GetHashCode();
+    }
+
+    public class CarDataComparer : IEqualityComparer<CarData>
+    {
+        public bool Equals(CarData x, CarData y)
+        {
+            return y != null && x != null && x.Year == y.Year;
+        }
+
+        public int GetHashCode(CarData obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
+
+    public class CarDateComparer : CarDataComparer
+    {
+        public new bool Equals(CarData x, CarData y)
+        {
+            return y != null && x != null && x.Date == y.Date;
+        }
     }
 }

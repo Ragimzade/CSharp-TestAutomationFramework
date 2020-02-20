@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Framework.Browsers;
+using Framework.Elements;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using Test.browser;
-using Test.elements;
 
-namespace Test.baseClasses
+namespace Framework.BaseClasses
 {
     public abstract class BaseForm : ElementFinder
     {
@@ -14,7 +14,7 @@ namespace Test.baseClasses
         {
             _formSelector = formSelector;
             _formName = $"{formName} form";
-            Browser.WaitForPageLoaded();
+            Driver.WaitForPageLoaded();
             AssertFormIsOpened(formSelector);
         }
 

@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
+using Framework.BaseClasses;
+using Framework.Utils;
+using MsTest.Model;
 using OpenQA.Selenium;
-using Test.baseClasses;
-using Test.utils;
-using TestAutomation.model;
 
-namespace TestAutomation.pages
+namespace MsTest.Pages
 {
     public class ResultPage : BaseForm
     {
@@ -26,9 +24,9 @@ namespace TestAutomation.pages
         private static readonly By LblChildCarName = By.XPath(".//div[@class='b-item_title']/a");
 
         private static readonly By LblChildCarPrice = By.XPath(".//div[@class='b-item_price']");
-        
+
         private static readonly By LblChildCarYear = By.XPath(".//div[@class='b-descr_item_info']");
-        
+
         private static readonly By LblChildCarDate = By.XPath(".//p[@class='b-le_company_inf']");
 
         private List<CarData> GetCarsOnPage()
@@ -44,7 +42,7 @@ namespace TestAutomation.pages
             var price = CutNonDigitCharacters(car.FindElement(LblChildCarPrice).Text);
             var year = CutNonDigitCharacters(car.FindElement(LblChildCarYear).Text);
             var date = CutCharactersAfterComma(car.FindElement(LblChildCarDate).Text);
-            var carData = new CarData(name, int.Parse(price), year, DateMapper.ConvertDate(date));
+            var carData = new CarData(name, int.Parse(price), year, DateConverter.ConvertDate(date));
             return carData;
         }
 
