@@ -19,7 +19,7 @@ namespace Framework.BaseClasses
             Configuration.Configuration.ParseConfiguration<Configuration.Configuration>(
                 File.ReadAllText(Path.Combine(AppContext.BaseDirectory, ConfigFileName)));
 
-        public static IWebDriver GetInstance(string browser)
+        protected static IWebDriver GetInstance(string browser)
         {
             if (_instance == null)
             {
@@ -29,10 +29,11 @@ namespace Framework.BaseClasses
                         _instance = BrowserFactory.InitDriver(browser);
                 }
             }
+
             return _instance;
         }
 
-        public static void QuitBrowser()
+        protected static void QuitBrowser()
         {
             if (_instance == null) return;
             _instance.Quit();
