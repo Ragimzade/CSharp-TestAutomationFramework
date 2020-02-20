@@ -10,6 +10,8 @@ namespace MsTest.Pages
 {
     public class ResultPage : BaseForm
     {
+        private static readonly By FormResultPage = By.ClassName("products-list");
+        
         private static readonly By BtnNext = By.XPath("//a[@class='next']");
 
         private static readonly By BtnSortByPrice =
@@ -87,7 +89,7 @@ namespace MsTest.Pages
             return GetAllCars();
         }
 
-        public ResultPage() : base(By.ClassName("products-list"), "ResultPage")
+        public ResultPage() : base(FormResultPage, "ResultPage")
         {
         }
     }

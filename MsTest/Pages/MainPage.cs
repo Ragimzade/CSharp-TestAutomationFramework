@@ -6,8 +6,9 @@ namespace MsTest.Pages
     public class MainPage : BaseForm
     {
         private static readonly By BtnCarsSale = By.XPath("//a[contains(@title,'Продажа автомобилей')]");
+        private static readonly By FormMainPage = By.XPath("//a[contains(@title,'Продажа автомобилей')]");
         
-        public MainPage() : base(By.XPath("//a[contains(@title,'Продажа автомобилей')]"), "MainPage")
+        public MainPage() : base(FormMainPage, "MainPage")
         {
         }
 

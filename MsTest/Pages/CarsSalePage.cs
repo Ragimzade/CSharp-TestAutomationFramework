@@ -8,10 +8,11 @@ namespace MsTest.Pages
         private static readonly By BtnBrand = By.XPath("//button[@title='Марка']");
         private static readonly By BtnModel = By.XPath("//button[@title='Модель']");
         private static readonly By BtnResult = By.XPath("//a[@class='js-filter-result']");
+        private static readonly By FormCarsSailPage = By.Id("cars-sell-form");
         private static By BrandValue(string brand) => By.XPath($"//a[@role='option']/span[contains(.,'{brand}')]");
         private static By ModelValue(string model) => By.XPath($"//a[@role='option']/span[contains(.,'{model}')]");
 
-        public CarsSalePage() : base(By.Id("cars-sell-form"), "CarsSell")
+        public CarsSalePage() : base(FormCarsSailPage, "CarsSell")
         {
         }
 
