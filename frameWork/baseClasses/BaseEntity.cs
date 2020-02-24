@@ -19,7 +19,7 @@ namespace Framework.BaseClasses
             Configuration.Configuration.ParseConfiguration<Configuration.Configuration>(
                 File.ReadAllText(Path.Combine(AppContext.BaseDirectory, ConfigFileName)));
 
-        public static IWebDriver GetInstance(string browser)
+        public static IWebDriver GetDriver(string browser)
         {
             if (_instance == null)
             {
