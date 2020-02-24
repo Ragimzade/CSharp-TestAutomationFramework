@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using static System.String;
 
-namespace MsTest.Model
+namespace Bdd.Model
 {
-    public class CarData : IEquatable<CarData>, IComparable<CarData>
+    public class CarData
     {
         public string Name { get; }
         public int Price { get; }
@@ -32,34 +30,6 @@ namespace MsTest.Model
 
         public override bool Equals(object obj) => Equals(obj as CarData);
 
-
-        public int CompareTo(CarData other)
-        {
-            return other == null ? 1 : Compare(Name, other.Name, StringComparison.Ordinal);
-        }
-
-
         public override int GetHashCode() => (Name, Price, Year, Date).GetHashCode();
-    }
-
-    public class CarDataComparer : IEqualityComparer<CarData>
-    {
-        public bool Equals(CarData x, CarData y)
-        {
-            return y != null && x != null && x.Year == y.Year;
-        }
-
-        public int GetHashCode(CarData obj)
-        {
-            return obj.GetHashCode();
-        }
-    }
-
-    public class CarDateComparer : CarDataComparer
-    {
-        public new bool Equals(CarData x, CarData y)
-        {
-            return y != null && x != null && x.Date == y.Date;
-        }
     }
 }

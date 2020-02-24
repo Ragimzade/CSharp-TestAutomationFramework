@@ -1,4 +1,4 @@
-﻿namespace Framework.Configuration
+﻿﻿namespace Framework.Configuration
 {
     public interface IConfiguration
     {

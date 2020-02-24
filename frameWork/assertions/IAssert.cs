@@ -2,7 +2,6 @@
 {
     public interface IAssert
     {
-        public bool Failed { get; }
-
+        bool Failed { get; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.IO;
 using Framework.Browsers;
 using Framework.Logging;
@@ -15,11 +15,11 @@ namespace Framework.BaseClasses
         private static IWebDriver _instance;
         private static readonly object SyncRoot = new object();
 
-        protected static readonly Configuration.Configuration Config =
+        public static readonly Configuration.Configuration Config =
             Configuration.Configuration.ParseConfiguration<Configuration.Configuration>(
                 File.ReadAllText(Path.Combine(AppContext.BaseDirectory, ConfigFileName)));
 
-        protected static IWebDriver GetInstance(string browser)
+        public static IWebDriver GetInstance(string browser)
         {
             if (_instance == null)
             {

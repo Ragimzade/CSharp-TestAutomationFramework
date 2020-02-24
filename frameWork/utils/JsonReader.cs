@@ -10,7 +10,7 @@ namespace Framework.Utils
 
         private static string ReadValueFromConfig(string value)
         {
-            using var sr = new StreamReader(ConfigFileName);
+            var sr = new StreamReader(ConfigFileName);
             var reader = new JsonTextReader(sr);
             var jObject = JObject.Load(reader);
 

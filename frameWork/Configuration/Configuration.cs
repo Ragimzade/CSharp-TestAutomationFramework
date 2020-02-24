@@ -1,12 +1,11 @@
-﻿#nullable enable
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Framework.Configuration
 {
     public class Configuration : IConfiguration
     {
         [JsonProperty("browser")]
-        public string? Browser { get; set; }
+        public string Browser { get; set; }
         
         [JsonProperty("timeoutInSeconds")]
         public int TimeOutInSeconds { get; set; }

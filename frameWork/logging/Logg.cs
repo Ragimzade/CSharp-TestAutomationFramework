@@ -10,10 +10,10 @@ namespace Framework.Logging
         private static Logg _instance;
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static Logger Logger = LogManager.GetCurrentClassLogger();
-        
+
         public static Logg GetInstance()
         {
-            return _instance ??= new Logg();
+            return _instance ?? (_instance = new Logg());
         }
 
         private Logg()
@@ -45,18 +45,23 @@ namespace Framework.Logging
         {
             Log.Fatal(exception, message);
         }
-        
+
         public void Step(int step, string msg)
         {
             Info($"----==[{step}. {msg} ]==----");
         }
-        
+
         [MethodImpl(MethodImplOptions.NoInlining)]
         public string GetCurrentMethod()
         {
             var st = new StackTrace();
             var sf = st.GetFrame(1);
             return sf.GetMethod().Name;
+        }
+
+        public void Info(int message)
+        {
+            Log.Info(message);
         }
     }
 }

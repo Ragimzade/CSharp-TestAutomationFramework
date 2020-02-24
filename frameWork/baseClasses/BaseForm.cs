@@ -1,4 +1,5 @@
-﻿using Framework.Browsers;
+﻿﻿using System;
+ using Framework.Browsers;
 using Framework.Elements;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -9,7 +10,6 @@ namespace Framework.BaseClasses
     {
         private readonly By _formSelector;
         private readonly string _formName;
-
         protected BaseForm(By formSelector, string formName)
         {
             _formSelector = formSelector;
@@ -17,7 +17,6 @@ namespace Framework.BaseClasses
             Driver.WaitForPageLoaded();
             AssertFormIsOpened(formSelector);
         }
-
         private void AssertFormIsOpened(By formSelector)
         {
             if (IsElementPresent(formSelector))
@@ -29,5 +28,6 @@ namespace Framework.BaseClasses
                 throw new AssertFailedException($"Form {_formName} is not opened");
             }
         }
+        
     }
 }

@@ -16,6 +16,7 @@ namespace Framework.Elements
         {
             try
             {
+                // Log.Info($"Waiting for element {locator}");
                 return SmartWait.WaitFor(Driver, ExpectedConditions.ElementIsVisible(locator),
                     TimeOutSeconds, TimeOutInMillis);
             }
@@ -25,7 +26,7 @@ namespace Framework.Elements
                     $"WebDriverTimeoutException: Element {locator} was not found for {TimeOutSeconds} seconds");
             }
         }
-        
+
         protected IWebElement WaitForElement(By locator)
         {
             return InternalFinder(locator);
@@ -38,9 +39,10 @@ namespace Framework.Elements
 
         protected void WaitForChildElement(By parentLocator, By childLocator)
         {
-            WaitForElement(parentLocator).FindElements(childLocator);
+            WaitForElement(parentLocator).FindElement(childLocator);
+            
         }
-        
+
         private void WaitForCondition<T>(Func<IWebDriver, T> condition)
         {
             SmartWait.WaitFor(Driver, condition, TimeOutSeconds, TimeOutInMillis);
@@ -51,7 +53,7 @@ namespace Framework.Elements
         {
             return InternalFinder(locator);
         }
-        
+
         protected bool IsElementPresent(By locator)
         {
             try
@@ -59,7 +61,7 @@ namespace Framework.Elements
                 WaitForCondition(ExpectedConditions.ElementIsVisible(locator));
                 return true;
             }
-            catch (WebDriverTimeoutException )
+            catch (WebDriverTimeoutException)
             {
                 return false;
             }

@@ -1,4 +1,4 @@
-﻿using Framework.BaseClasses;
+﻿﻿using Framework.BaseClasses;
 using Framework.Utils;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
