@@ -53,10 +53,8 @@ namespace Bdd.StepDefinition
         {
             var expectedSortingByPrice =
                 _carLists.CarsOnPage.OrderBy(car => car.Price).ToList();
-            CollectionAssert.AreEqual(expectedSortingByPrice, _carLists.SortedByPrice);
-
-            // _softAssert.True("Cars are not sorted correctly by price",
-            //     expectedSortingByPrice.SequenceEqual(_carLists.SortedByPrice));
+            _softAssert.True("Cars are not sorted correctly by price",
+                expectedSortingByPrice.SequenceEqual(_carLists.SortedByPrice));
         }
 
         [When(@"User sorts cars by year")]
@@ -77,7 +75,6 @@ namespace Bdd.StepDefinition
         public void SortResultByDate()
         {
             _carLists.SortedByDate = _resultPage.SortResultByDate();
-            foreach (var car in _carLists.SortedByDate) Log.Info(car.Date);
         }
 
         [Then(@"User sees  that cars are sorted by date")]

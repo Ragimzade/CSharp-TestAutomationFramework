@@ -10,7 +10,7 @@ namespace Bdd.Hooks
         [BeforeScenario]
         public void BeforeScenarioSteps()
         {
-            Driver = GetInstance(Config.Browser);
+            Driver = GetDriver(Config.Browser);
             FileUtils.CleanDirectory(FileUtils.BuildDirectoryPath());
         }
 
