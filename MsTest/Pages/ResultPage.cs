@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Framework.BaseClasses;
 using Framework.Utils;
 using MsTest.Model;
@@ -11,7 +10,7 @@ namespace MsTest.Pages
     public class ResultPage : BaseForm
     {
         private static readonly By FormResultPage = By.ClassName("products-list");
-        
+
         private static readonly By BtnNext = By.XPath("//a[@class='next']");
 
         private static readonly By BtnSortByPrice =
@@ -41,9 +40,9 @@ namespace MsTest.Pages
         private CarData GetCarData(ISearchContext car)
         {
             var name = car.FindElement(LblChildCarName).Text;
-            var price = CutNonDigitCharacters(car.FindElement(LblChildCarPrice).Text);
-            var year = CutNonDigitCharacters(car.FindElement(LblChildCarYear).Text);
-            var date = CutCharactersAfterComma(car.FindElement(LblChildCarDate).Text);
+            var price = StringUtils.CutNonDigitCharacters(car.FindElement(LblChildCarPrice).Text);
+            var year = StringUtils.CutNonDigitCharacters(car.FindElement(LblChildCarYear).Text);
+            var date = StringUtils.CutCharactersAfterComma(car.FindElement(LblChildCarDate).Text);
             var carData = new CarData(name, int.Parse(price), year, DateConverter.ConvertDate(date));
             return carData;
         }
@@ -60,16 +59,6 @@ namespace MsTest.Pages
 
             return allCars;
         }
-
-        private string CutCharactersAfterComma(string valueToCut) =>
-            Regex.Match(valueToCut, @"([^,]+$)")
-                .Value
-                .Replace(" ", string.Empty);
-
-        private string CutNonDigitCharacters(string valueToCut) =>
-            Regex.Match(valueToCut, @"^[^aA-aA-zZ-яЯ]*")
-                .Value
-                .Replace(" ", string.Empty);
 
         public List<CarData> FilterByPrice()
         {
