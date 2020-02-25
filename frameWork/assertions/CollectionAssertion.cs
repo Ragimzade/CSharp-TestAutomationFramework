@@ -1,7 +1,7 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 
-namespace Test.assertions
+namespace Framework.Assertions
 {
     public class CollectionAssertion : IAssert
     {

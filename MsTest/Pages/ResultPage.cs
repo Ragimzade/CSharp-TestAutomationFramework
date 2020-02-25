@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
+using Framework.BaseClasses;
+using Framework.Utils;
+using MsTest.Model;
 using OpenQA.Selenium;
-using Test.baseClasses;
-using Test.utils;
-using TestAutomation.model;
 
-namespace TestAutomation.pages
+namespace MsTest.Pages
 {
     public class ResultPage : BaseForm
     {
+        private static readonly By FormResultPage = By.ClassName("products-list");
+
         private static readonly By BtnNext = By.XPath("//a[@class='next']");
 
         private static readonly By BtnSortByPrice =
@@ -26,9 +25,9 @@ namespace TestAutomation.pages
         private static readonly By LblChildCarName = By.XPath(".//div[@class='b-item_title']/a");
 
         private static readonly By LblChildCarPrice = By.XPath(".//div[@class='b-item_price']");
-        
+
         private static readonly By LblChildCarYear = By.XPath(".//div[@class='b-descr_item_info']");
-        
+
         private static readonly By LblChildCarDate = By.XPath(".//p[@class='b-le_company_inf']");
 
         private List<CarData> GetCarsOnPage()
@@ -41,10 +40,10 @@ namespace TestAutomation.pages
         private CarData GetCarData(ISearchContext car)
         {
             var name = car.FindElement(LblChildCarName).Text;
-            var price = CutNonDigitCharacters(car.FindElement(LblChildCarPrice).Text);
-            var year = CutNonDigitCharacters(car.FindElement(LblChildCarYear).Text);
-            var date = CutCharactersAfterComma(car.FindElement(LblChildCarDate).Text);
-            var carData = new CarData(name, int.Parse(price), year, DateMapper.ConvertDate(date));
+            var price = StringUtils.CutNonDigitCharacters(car.FindElement(LblChildCarPrice).Text);
+            var year = StringUtils.CutNonDigitCharacters(car.FindElement(LblChildCarYear).Text);
+            var date = StringUtils.CutCharactersAfterComma(car.FindElement(LblChildCarDate).Text);
+            var carData = new CarData(name, int.Parse(price), year, DateConverter.ConvertDate(date));
             return carData;
         }
 
@@ -60,16 +59,6 @@ namespace TestAutomation.pages
 
             return allCars;
         }
-
-        private string CutCharactersAfterComma(string valueToCut) =>
-            Regex.Match(valueToCut, @"([^,]+$)")
-                .Value
-                .Replace(" ", string.Empty);
-
-        private string CutNonDigitCharacters(string valueToCut) =>
-            Regex.Match(valueToCut, @"^[^aA-aA-zZ-яЯ]*")
-                .Value
-                .Replace(" ", string.Empty);
 
         public List<CarData> FilterByPrice()
         {
@@ -89,7 +78,7 @@ namespace TestAutomation.pages
             return GetAllCars();
         }
 
-        public ResultPage() : base(By.ClassName("products-list"), "ResultPage")
+        public ResultPage() : base(FormResultPage, "ResultPage")
         {
         }
     }

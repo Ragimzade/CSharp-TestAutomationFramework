@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 
-namespace Test.assertions
+namespace Framework.Assertions
 {
     public class SoftAssertions
     {

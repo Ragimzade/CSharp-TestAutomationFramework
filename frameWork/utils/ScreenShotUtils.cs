@@ -1,11 +1,11 @@
 ﻿using System.IO;
+using Framework.BaseClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using Test.baseClasses;
 
-namespace Test.utils
+namespace Framework.Utils
 {
-    public  class ScreenShotUtils : BaseEntity
+    public class ScreenshotUtils : BaseEntity
     {
         public static void TakeScreenshot(TestContext testContext)
         {
@@ -28,7 +28,7 @@ namespace Test.utils
         private static void GetScreenshot(TestContext testContext)
         {
             Log.Error("The test failed and about to grab a screenshot");
-            var filename = Path.Combine(FileUtils.GetOutputDirectory(),
+            var filename = Path.Combine(FileUtils.BuildDirectoryPath(),
                 DateUtils.GetTimeStamp() + "-" + testContext.TestName + ".png");
 
             ((ITakesScreenshot) Driver).GetScreenshot()
