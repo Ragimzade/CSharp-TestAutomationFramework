@@ -7,19 +7,19 @@ namespace Framework.Utils
 {
     public class ScreenshotUtils : BaseEntity
     {
-        public static void TakeScreenshot()
+        public static void TakeScreenshot(string screenshotName)
         {
             if (ScenarioContext.Current.TestError != null)
             {
-                GetScreenshot();
+                GetScreenshot(screenshotName);
             }
         }
 
-        private static void GetScreenshot()
+        private static void GetScreenshot(string screenshotName)
         {
             Log.Error("The test failed and about to grab a screenshot");
             var filename = Path.Combine(FileUtils.BuildDirectoryPath(),
-                DateUtils.GetTimeStamp() + "-" + ScenarioContext.Current.ScenarioInfo.Title + ".png");
+                DateUtils.GetTimeStamp() + "-" + screenshotName + ".png");
 
             ((ITakesScreenshot) Driver).GetScreenshot()
                 .SaveAsFile(filename, ScreenshotImageFormat.Png);

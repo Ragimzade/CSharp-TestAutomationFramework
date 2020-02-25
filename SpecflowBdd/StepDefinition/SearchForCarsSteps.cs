@@ -6,6 +6,7 @@ using Framework.Assertions;
 using Framework.BaseClasses;
 using Framework.Browsers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace Bdd.StepDefinition
@@ -26,6 +27,7 @@ namespace Bdd.StepDefinition
         public void GoToMainPage()
         {
             Driver.OpenBaseUrl();
+
         }
 
         [When(@"User search for cars with brand (.*) and model (.*)")]
